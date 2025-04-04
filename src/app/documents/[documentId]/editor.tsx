@@ -21,6 +21,7 @@ import TextAlign from '@tiptap/extension-text-align'
 
 
 import {useEditorStore} from "@/store/use-editor-store";
+import { FontSizeExtension } from "@/extensions/font-size"
 
 export const Editor = () => {
 
@@ -69,7 +70,8 @@ export const Editor = () => {
             }),
             TextAlign.configure({
                 types: ["heading", "paragraph"]
-            })
+            }),
+            FontSizeExtension
         ],
         content: "<p>Hello, World! 🌍</p>"
 
