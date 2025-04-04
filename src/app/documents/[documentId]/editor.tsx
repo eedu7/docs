@@ -4,6 +4,10 @@ import {EditorContent, useEditor} from "@tiptap/react"
 import StarterKit from "@tiptap/starter-kit"
 import TaskItem from '@tiptap/extension-task-item'
 import TaskList from '@tiptap/extension-task-list'
+import Table from '@tiptap/extension-table'
+import TableCell from '@tiptap/extension-table-cell'
+import TableHeader from '@tiptap/extension-table-header'
+import TableRow from '@tiptap/extension-table-row'
 
 
 export const Editor = () => {
@@ -16,8 +20,20 @@ export const Editor = () => {
             }
         }, extensions: [StarterKit, TaskList, TaskItem.configure({
             nested: true
-        })], content: "<p>Hello, World! 🌍</p>"
-
+        }), Table, TableRow, TableHeader, TableCell], content: "<table>\n" +
+            "          <tbody>\n" +
+            "            <tr>\n" +
+            "              <th>Name</th>\n" +
+            "              <th colspan=\"3\">Description</th>\n" +
+            "            </tr>\n" +
+            "            <tr>\n" +
+            "              <td>Cyndi Lauper</td>\n" +
+            "              <td>Singer</td>\n" +
+            "              <td>Songwriter</td>\n" +
+            "              <td>Actress</td>\n" +
+            "            </tr>\n" +
+            "          </tbody>\n" +
+            "        </table>"
     })
 
     return (
