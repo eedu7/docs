@@ -14,6 +14,8 @@ import Underline from "@tiptap/extension-underline"
 import Text from '@tiptap/extension-text'
 import TextStyle from '@tiptap/extension-text-style'
 import FontFamily from '@tiptap/extension-font-family'
+import HighLight from '@tiptap/extension-highlight'
+import {Color} from '@tiptap/extension-color'
 
 
 import {useEditorStore} from "@/store/use-editor-store";
@@ -53,9 +55,12 @@ export const Editor = () => {
                 class: "focus:outline-none print:border-0 bg-white border border-[#C7C7C7] flex flex-col min-h-[1054px] w-[816px] pt-10 pr-14 pb-10 cursor-text"
             }
         },
-        extensions: [StarterKit, TaskList, TaskItem.configure({
-            nested: true
-        }), Table, TableRow, TableHeader, TableCell, Image, ImageResize, Underline, Text, TextStyle, FontFamily],
+        extensions: [StarterKit, TaskList,
+            TaskItem.configure({ nested: true }),
+            Table, TableRow, TableHeader, TableCell, Image, ImageResize,
+            Underline, Text, TextStyle, FontFamily, Color,
+            HighLight.configure({ multicolor: true })
+        ],
         content: "<p>Hello, World! 🌍</p>"
 
     });
