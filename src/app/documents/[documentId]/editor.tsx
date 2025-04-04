@@ -12,7 +12,6 @@ import Image from '@tiptap/extension-image'
 import ImageResize from "tiptap-extension-resize-image"
 
 
-
 export const Editor = () => {
 
     const editor = useEditor({
@@ -25,12 +24,12 @@ export const Editor = () => {
             nested: true
         }), Table, TableRow, TableHeader, TableCell, Image, ImageResize], content: "<p>Hello, World! 🌍</p>"
 
-    })
+    });
 
     return (
         <div className="size-full overflow-x-auto bg-[#F9FBFD] px-4 print:p-0 print:bg-white print:overflow-visible">
             <div className="min-w-max flex justify-center w-[816px] py-4 print:py-0 mx-auto print:w-full print:min-w-0">
                 <EditorContent editor={editor}/>
             </div>
-        </div>)
+        </div>);
 }
