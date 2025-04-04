@@ -3,6 +3,7 @@
 import React from 'react'
 import {LucideIcon, Undo2Icon} from "lucide-react";
 import {cn} from "@/lib/utils";
+import {useEditorStore} from "@/store/use-editor-store";
 
 interface ToolbarButtonProps {
     onClick?: () => void;
@@ -11,31 +12,27 @@ interface ToolbarButtonProps {
 }
 
 const ToolbarButton = ({onClick, isActive, icon: Icon}: ToolbarButtonProps) => {
-    return (<button onClick={onClick}
+    return (<button type="button" onClick={onClick}
                     className={cn("text-sm h-7 min-w-7 flex items-center  justify-center rounded-sm hover:bg-neutral-200/80", isActive && "bg-neutral-200/80")}>
-            <Icon className="size-4"/>
-        </button>)
+        <Icon className="size-4"/>
+    </button>)
 }
 
 
 export const Toolbar = () => {
 
-    const sections: { label: string, icon: LucideIcon, onclick: () => void, isActive?: boolean }[][] = [
-        [
-            {
-                label: "Undo",
-                icon: Undo2Icon,
-                onclick: () => console.log("Undo clicked!"),
-            }
-        ]
-    ];
+    const {editor} = useEditorStore();
+
+    console.log("Toolbar editor: ", {editor});
+
+    const sections: { label: string, icon: LucideIcon, onclick: () => void, isActive?: boolean }[][] = [[{
+        label: "Undo", icon: Undo2Icon, onclick: () => {
+            editor?.chain().focus().undo().run()
+        }
+    }]];
 
     return (<div
         className="bg-[#F1F4F9] px-2.5 py-0.5 rounded-[24px] min-h-[40px] flex items-center gap-x-0.5 overflow-x-auto">
-        {
-            sections[0].map((item) => (
-                <ToolbarButton key={item.label} {...item} />
-            ))
-        }
+        {sections[0].map((item) => (<ToolbarButton key={item.label} onClick={item.onclick} {...item} />))}
     </div>)
 }
