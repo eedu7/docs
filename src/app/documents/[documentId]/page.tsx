@@ -1,15 +1,15 @@
 import React from 'react'
-import Editor from "@/app/documents/[documentId]/editor";
+import {Editor} from "@/app/documents/[documentId]/editor";
+import {Toolbar} from "@/app/documents/[documentId]/toolbar";
 
 interface DocumentIDPageProps {
-    params: Promise<{ documentId: string }>
+    props: Promise<{ documentId: string }>
 }
 
-export default async function DocumentIDPage({params}: DocumentIDPageProps) {
-
-    const {documentId} = await params;
-
+function DocumentIDPage({props}: DocumentIDPageProps) {
     return (<div className="min-h-screen bg-[#FAFBFD]">
-        <Editor/>
-    </div>)
+        <Toolbar/>
+        <Editor/></div>)
 }
+
+export default DocumentIDPage

@@ -1,7 +1,9 @@
 import React from 'react'
 
-export default function DocumentPage() {
+function DocumentPage() {
     return (
         <div>DocumentPage</div>
     )
 }
+
+export default DocumentPage
