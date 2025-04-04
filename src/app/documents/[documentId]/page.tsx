@@ -6,7 +6,7 @@ interface DocumentIDPageProps {
 }
 
 function DocumentIDPage({props}: DocumentIDPageProps) {
-    return (<div><Editor/></div>)
+    return (<div className="min-h-screen bg-[#FAFBFD]"><Editor/></div>)
 }
 
 export default DocumentIDPage
