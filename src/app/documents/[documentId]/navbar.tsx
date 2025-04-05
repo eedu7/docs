@@ -30,7 +30,11 @@ import {useEditorStore} from "@/store/use-editor-store";
 
 export const Navbar = () => {
 
-    const { editor } = useEditorStore()
+    const { editor } = useEditorStore();
+
+    const insertTable = ({rows, cols}: {rows: number, cols: number}) => {
+        editor?.chain().focus().insertTable({rows, cols, withHeaderRow: false}).run()
+    }
 
     return (
         <nav className="flex items-center justify-between">
@@ -120,22 +124,18 @@ export const Navbar = () => {
                                             Table
                                         </MenubarSubTrigger>
                                         <MenubarSubContent>
-                                            {/* TODO: Enable this */}
                                             {/* TODO: Extra make this look like in Google Docs*/}
-                                            <MenubarItem>
+                                            <MenubarItem onClick={() => insertTable({rows: 1, cols: 1})}>
                                                 1 x 1
                                             </MenubarItem>
-                                            <MenubarItem>
+                                            <MenubarItem onClick={() => insertTable({rows: 2, cols: 2})}>
                                                 2 x 2
                                             </MenubarItem>
-                                            <MenubarItem>
+                                            <MenubarItem onClick={() => insertTable({rows: 3, cols: 3})}>
                                                 3 x 3
                                             </MenubarItem>
-                                            <MenubarItem>
+                                            <MenubarItem onClick={() => insertTable({rows: 4, cols: 4})}>
                                                 4 x 4
-                                            </MenubarItem>
-                                            <MenubarItem>
-                                                5 x 5
                                             </MenubarItem>
                                         </MenubarSubContent>
                                     </MenubarSub>

@@ -80,7 +80,6 @@ export const Editor = () => {
                 defaultLineHeight: "normal"
             })
         ],
-        content: "<p>Hello, World! 🌍</p>"
 
     });
 
