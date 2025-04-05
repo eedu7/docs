@@ -10,13 +10,7 @@ import {
     CarouselPrevious
 } from "@/components/ui/carousel"
 import {cn} from "@/lib/utils";
-
-const templates = [{
-    id: "blank",
-    label: "Blank Document",
-    imageUrl: "/logo.svg",
-
-}]
+import {templates} from "@/constants/templates";
 
 export const TemplatesGallery = () => {
 
@@ -59,6 +53,8 @@ export const TemplatesGallery = () => {
                             ))
                         }
                     </CarouselContent>
+                    <CarouselPrevious />
+                    <CarouselNext />
                 </Carousel>
             </div>
         </div>
