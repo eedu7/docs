@@ -14,16 +14,18 @@ import {
     MenubarTrigger,
 } from "@/components/ui/menubar"
 import {
+    BoldIcon,
     FileIcon,
     FileJsonIcon,
     FilePenIcon,
     FilePlusIcon,
     FileTextIcon,
-    GlobeIcon,
-    PrinterIcon, Redo2Icon,
-    TrashIcon, Undo2Icon
+    GlobeIcon, ItalicIcon,
+    PrinterIcon, Redo2Icon, RemoveFormattingIcon, StrikethroughIcon, TextIcon,
+    TrashIcon, UnderlineIcon, Undo2Icon
 } from "lucide-react";
 import {BsFilePdf} from "react-icons/bs";
+import Underline from "@tiptap/extension-underline";
 
 
 export const Navbar = () => {
@@ -140,6 +142,36 @@ export const Navbar = () => {
                                 <MenubarTrigger className="text-sm font-normal py-0.5 px-[7px] rounded-sm hover:bg-muted-foreground h-auto">
                                     Format
                                 </MenubarTrigger>
+                                <MenubarContent>
+                                    <MenubarSub>
+                                        <MenubarSubTrigger>
+                                            <TextIcon className="size-4 mr-2" />
+                                            Text
+                                        </MenubarSubTrigger>
+                                        <MenubarSubContent>
+                                            <MenubarItem>
+                                                <BoldIcon className="size-4 mr-2" />
+                                                Bold <MenubarShortcut>&#8984;B</MenubarShortcut>
+                                            </MenubarItem>
+                                            <MenubarItem>
+                                                <ItalicIcon className="size-4 mr-2" />
+                                                Italic <MenubarShortcut>&#8984;I</MenubarShortcut>
+                                            </MenubarItem>
+                                            <MenubarItem>
+                                                <UnderlineIcon className="size-4 mr-2" />
+                                                Underline <MenubarShortcut>&#8984;U</MenubarShortcut>
+                                            </MenubarItem>
+                                            <MenubarItem>
+                                                <StrikethroughIcon className="size-4 mr-2" />
+                                                Strikethrough&nbsp;&nbsp;<MenubarShortcut>&#8984;S</MenubarShortcut>
+                                            </MenubarItem>
+                                        </MenubarSubContent>
+                                    </MenubarSub>
+                                    <MenubarItem>
+                                        <RemoveFormattingIcon className="size-4 mr-2" />
+                                        Clear formatting
+                                    </MenubarItem>
+                                </MenubarContent>
                             </MenubarMenu>
 
                         </Menubar>
