@@ -20,8 +20,8 @@ import {
     FilePlusIcon,
     FileTextIcon,
     GlobeIcon,
-    PrinterIcon,
-    TrashIcon
+    PrinterIcon, Redo2Icon,
+    TrashIcon, Undo2Icon
 } from "lucide-react";
 import {BsFilePdf} from "react-icons/bs";
 
@@ -94,6 +94,16 @@ export const Navbar = () => {
                                 <MenubarTrigger className="text-sm font-normal py-0.5 px-[7px] rounded-sm hover:bg-muted-foreground h-auto">
                                     Edit
                                 </MenubarTrigger>
+                                <MenubarContent>
+                                    <MenubarItem>
+                                        <Undo2Icon className="size-4 mr-2" />
+                                        Undo <MenubarShortcut>&#8984;Z</MenubarShortcut>
+                                    </MenubarItem>
+                                    <MenubarItem>
+                                        <Redo2Icon className="size-4 mr-2" />
+                                        Redo <MenubarShortcut>&#8984;Y</MenubarShortcut>
+                                    </MenubarItem>
+                                </MenubarContent>
                             </MenubarMenu>
                             <MenubarMenu>
                                 <MenubarTrigger className="text-sm font-normal py-0.5 px-[7px] rounded-sm hover:bg-muted-foreground h-auto">
