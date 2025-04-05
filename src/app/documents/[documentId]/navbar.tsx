@@ -109,6 +109,32 @@ export const Navbar = () => {
                                 <MenubarTrigger className="text-sm font-normal py-0.5 px-[7px] rounded-sm hover:bg-muted-foreground h-auto">
                                     Insert
                                 </MenubarTrigger>
+                                <MenubarContent>
+                                    <MenubarSub>
+                                        <MenubarSubTrigger>
+                                            Table
+                                        </MenubarSubTrigger>
+                                        <MenubarSubContent>
+                                            {/* TODO: Enable this */}
+                                            {/* TODO: Extra make this look like in Google Docs*/}
+                                            <MenubarItem>
+                                                1 x 1
+                                            </MenubarItem>
+                                            <MenubarItem>
+                                                2 x 2
+                                            </MenubarItem>
+                                            <MenubarItem>
+                                                3 x 3
+                                            </MenubarItem>
+                                            <MenubarItem>
+                                                4 x 4
+                                            </MenubarItem>
+                                            <MenubarItem>
+                                                5 x 5
+                                            </MenubarItem>
+                                        </MenubarSubContent>
+                                    </MenubarSub>
+                                </MenubarContent>
                             </MenubarMenu>
                             <MenubarMenu>
                                 <MenubarTrigger className="text-sm font-normal py-0.5 px-[7px] rounded-sm hover:bg-muted-foreground h-auto">
