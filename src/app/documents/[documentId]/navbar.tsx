@@ -25,10 +25,13 @@ import {
     TrashIcon, UnderlineIcon, Undo2Icon
 } from "lucide-react";
 import {BsFilePdf} from "react-icons/bs";
-import Underline from "@tiptap/extension-underline";
+import {useEditorStore} from "@/store/use-editor-store";
 
 
 export const Navbar = () => {
+
+    const { editor } = useEditorStore()
+
     return (
         <nav className="flex items-center justify-between">
             <div className="flex gap-2 items-center">
@@ -97,11 +100,11 @@ export const Navbar = () => {
                                     Edit
                                 </MenubarTrigger>
                                 <MenubarContent>
-                                    <MenubarItem>
+                                    <MenubarItem onClick={() => editor?.chain().focus().undo().run()}>
                                         <Undo2Icon className="size-4 mr-2" />
                                         Undo <MenubarShortcut>&#8984;Z</MenubarShortcut>
                                     </MenubarItem>
-                                    <MenubarItem>
+                                    <MenubarItem onClick={() => editor?.chain().focus().redo().run()}>
                                         <Redo2Icon className="size-4 mr-2" />
                                         Redo <MenubarShortcut>&#8984;Y</MenubarShortcut>
                                     </MenubarItem>
