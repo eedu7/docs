@@ -18,6 +18,7 @@ import HighLight from '@tiptap/extension-highlight'
 import {Color} from '@tiptap/extension-color'
 import Link from "@tiptap/extension-link"
 import TextAlign from '@tiptap/extension-text-align'
+import {LineHeightExtension} from "@/extensions/line-height"
 
 
 import {useEditorStore} from "@/store/use-editor-store";
@@ -71,7 +72,11 @@ export const Editor = () => {
             TextAlign.configure({
                 types: ["heading", "paragraph"]
             }),
-            FontSizeExtension
+            FontSizeExtension,
+            LineHeightExtension.configure({
+                type: ["heading", "paragraph"],
+                defaultLineHeight: "normal"
+            })
         ],
         content: "<p>Hello, World! 🌍</p>"
 
