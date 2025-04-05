@@ -152,19 +152,19 @@ export const Navbar = () => {
                                             Text
                                         </MenubarSubTrigger>
                                         <MenubarSubContent>
-                                            <MenubarItem>
+                                            <MenubarItem onClick={() => editor?.chain().focus().toggleBold().run()}>
                                                 <BoldIcon className="size-4 mr-2" />
                                                 Bold <MenubarShortcut>&#8984;B</MenubarShortcut>
                                             </MenubarItem>
-                                            <MenubarItem>
+                                            <MenubarItem onClick={() => editor?.chain().focus().toggleItalic().run()}>
                                                 <ItalicIcon className="size-4 mr-2" />
                                                 Italic <MenubarShortcut>&#8984;I</MenubarShortcut>
                                             </MenubarItem>
-                                            <MenubarItem>
+                                            <MenubarItem onClick={() => editor?.chain().focus().toggleUnderline().run()}>
                                                 <UnderlineIcon className="size-4 mr-2" />
                                                 Underline <MenubarShortcut>&#8984;U</MenubarShortcut>
                                             </MenubarItem>
-                                            <MenubarItem>
+                                            <MenubarItem onClick={() => editor?.chain().focus().toggleStrike().run()}>
                                                 <StrikethroughIcon className="size-4 mr-2" />
                                                 Strikethrough&nbsp;&nbsp;<MenubarShortcut>&#8984;S</MenubarShortcut>
                                             </MenubarItem>
