@@ -28,7 +28,7 @@ export const create = mutation({
 export const get = query({
     args: {
         paginationOpts: paginationOptsValidator,
-        search: v.optional(v.string())
+        search: v.optional(v.string()),
     },
     handler: async (ctx, {paginationOpts, search}) => {
 
@@ -36,15 +36,28 @@ export const get = query({
 
         if (!user) throw new ConvexError("Unauthorized");
 
+        const organizationId = (user.organization_id ?? undefined) as | string | undefined
+
+        // Search within organization
+        if (search && organizationId) {
+            return await ctx.db.query("documents").withSearchIndex("search_title", q => q.search("title", search).eq("organizationId", organizationId)).paginate(paginationOpts)
+        }
+        // Personal Search
         if (search) {
             return await ctx.db
                 .query("documents").withSearchIndex("search_title", q => q.search("title", search).eq("ownerId", user.subject))
                 .paginate(paginationOpts)
-        } else {
+        }
+        // All Docs in the Organization
+        if (organizationId) {
             return await ctx.db
-                .query("documents").withIndex("by_owner_id", q => q.eq("ownerId", user.subject))
+                .query("documents").withIndex("by_organization_id", q => q.eq("organizationId", organizationId))
                 .paginate(paginationOpts)
         }
+        // All personal docs
+        return await ctx.db
+            .query("documents").withIndex("by_owner_id", q => q.eq("ownerId", user.subject))
+            .paginate(paginationOpts)
 
     }
 })
