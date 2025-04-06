@@ -5,7 +5,7 @@ import {useInboxNotifications} from "@liveblocks/react/suspense";
 import {DropdownMenu, DropdownMenuContent, DropdownMenuTrigger} from "@/components/ui/dropdown-menu";
 import {BellIcon} from "lucide-react";
 import {Button} from "@/components/ui/button";
-import {InboxNotificationList} from "@liveblocks/react-ui";
+import {InboxNotification, InboxNotificationList} from "@liveblocks/react-ui";
 
 
 export const Inbox = () => {
@@ -39,7 +39,14 @@ const InboxMenu = () => {
                 {
                     inboxNotifications.length > 0 ? (
                         <InboxNotificationList>
-
+                            {
+                                inboxNotifications.map((inboxNotification) => (
+                                    <InboxNotification
+                                        key={inboxNotification.id}
+                                        inboxNotification={inboxNotification}
+                                    />
+                                ))
+                            }
                         </InboxNotificationList>
                     ) : (
                         <div className='p-2 w-[400px] text-center text-sm text-muted-foreground'>No notificatinos</div>
