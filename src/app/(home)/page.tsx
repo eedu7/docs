@@ -24,7 +24,6 @@ export default function Home() {
                     loadMore={loadMore}
                     status={status}
                 />
-
             </div>
         </div>);
 }
