@@ -1,7 +1,8 @@
-import React from 'react'
+import {FullscreenLoader} from "@/components/fullscreen-loader";
 
-export const Loading = () => {
+const LoadingPage = () => {
     return (
-        <div>Loading</div>
+        <FullscreenLoader label="Document Loading" />
     )
 }
+export default LoadingPage

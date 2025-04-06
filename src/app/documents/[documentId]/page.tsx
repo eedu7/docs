@@ -7,14 +7,14 @@ import {preloadQuery} from "convex/nextjs";
 import {api} from "../../../../convex/_generated/api";
 
 interface DocumentIDPageProps {
-    props: Promise<{ documentId: Id<"documents"> }>
+    params: Promise<{ documentId: Id<"documents"> }>
 }
 
-async function DocumentIDPage({ props }: DocumentIDPageProps) {
+async function DocumentIDPage({ params }: DocumentIDPageProps) {
 
-    const {documentId} = await props;
+    const { documentId } = await params;
 
-    const { getToken } = await auth()
+    const { getToken } = await auth();
     const token = await getToken({template: "convex"}) ?? undefined;
 
     if (!token) throw new Error("Unauthorized");
