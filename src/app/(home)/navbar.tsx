@@ -4,7 +4,7 @@ import React from 'react'
 import Link from "next/link";
 import Image from "next/image";
 import {SearchInput} from "@/app/(home)/search-input";
-import {UserButton} from "@clerk/clerk-react";
+import {UserButton} from "@clerk/nextjs";
 
 export const Navbar = () => {
     return (
