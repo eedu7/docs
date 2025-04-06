@@ -28,5 +28,6 @@ export default function Home() {
                     status={status}
                 />
             </div>
-        </div>);
+        </div>
+    );
 }
