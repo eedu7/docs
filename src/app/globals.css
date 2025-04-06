@@ -297,3 +297,7 @@ body {
         display: none;
     }
 }
+
+div[data-radix-proper-content-wrapper] {
+    z-index: 50 !important;
+}
