@@ -31,7 +31,7 @@ export async function POST(req: Request) {
     }
 
     const isOwner = document.ownerId === user.id;
-    const isOrganizationMember = !!(document.organizationId && document.organizationId === sessionClaims.organizationId);
+    const isOrganizationMember = !!!(document.organizationId && document.organizationId === sessionClaims.organizationId);
 
 
     if (!isOwner && !isOrganizationMember) return new Response("Unauthorized", { status: 401 });
