@@ -1,7 +1,10 @@
+"use client"
+
 import React from 'react'
 import Link from "next/link";
 import Image from "next/image";
 import {SearchInput} from "@/app/(home)/search-input";
+import {UserButton} from "@clerk/clerk-react";
 
 export const Navbar = () => {
     return (
@@ -13,7 +16,7 @@ export const Navbar = () => {
                 <h3 className="text-xl">Docs</h3>
             </div>
             <SearchInput />
-            <div  />
+            <UserButton />
         </nav>
     )
 }

@@ -18,7 +18,7 @@ export function ConvexClientProvider({children}: { children: ReactNode }) {
                     {children}
                 </Authenticated>
                 <Unauthenticated>
-                    <div className="flex justify-center mt-24">
+                    <div className="flex items-center justify-center min-h-screen">
                         <SignIn />
                     </div>
                 </Unauthenticated>
