@@ -10,17 +10,18 @@ interface DocumentIDPageProps {
 
 function DocumentIDPage({props}: DocumentIDPageProps) {
     return (
-        <div className="min-h-screen bg-[#FAFBFD]">
-            <div className="flex flex-col px-4 pt-2 gap-y-2 top-0 left-0 right-0 z-10 bg-[#FaFbFD] print:hidden">
-                <Navbar />
-                <Toolbar />
+        <Room>
+            <div className="min-h-screen bg-[#FAFBFD]">
+                <div className="flex flex-col px-4 pt-2 gap-y-2 top-0 left-0 right-0 z-10 bg-[#FaFbFD] print:hidden">
+                    <Navbar />
+                    <Toolbar />
+                </div>
+                <div className="print:pt-0">
+                        <Editor />
+                </div>
             </div>
-            <div className="print:pt-0">
-                <Room>
-                    <Editor />
-                </Room>
-            </div>
-        </div>)
+        </Room>
+            )
 }
 
 export default DocumentIDPage
