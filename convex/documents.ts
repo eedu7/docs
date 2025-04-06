@@ -79,9 +79,9 @@ export const removeById = mutation({
         if (!document) throw new ConvexError("Document not found.")
 
         const isOwner = document.ownerId === user.subject;
-        const isOrganizationNumber = document.organizationId === organizationId
+        const isOrganizationMember = !!(document.organizationId && document.organizationId === organizationId);
 
-        if (!isOwner && !isOrganizationNumber) throw new ConvexError("Unauthorized")
+        if (!isOwner && !isOrganizationMember) throw new ConvexError("Unauthorized")
 
         return await ctx.db.delete(args.id)
 
@@ -105,9 +105,9 @@ export const updateById = mutation({
         if (!document) throw new ConvexError("Document not found.")
 
         const isOwner = document.ownerId === user.subject;
-        const isOrganizationNumber = document.organizationId === organizationId
+        const isOrganizationMember = !!(document.organizationId && document.organizationId === organizationId);
 
-        if (!isOwner && !isOrganizationNumber) throw new ConvexError("Unauthorized")
+        if (!isOwner && !isOrganizationMember) throw new ConvexError("Unauthorized")
 
         return await ctx.db.patch(args.id, {title: args.title})
 
