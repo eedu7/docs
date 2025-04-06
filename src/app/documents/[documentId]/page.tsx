@@ -2,6 +2,7 @@ import React from 'react'
 import {Editor} from "@/app/documents/[documentId]/editor";
 import {Toolbar} from "@/app/documents/[documentId]/toolbar";
 import {Navbar} from "@/app/documents/[documentId]/navbar";
+import {Room} from "@/Room";
 
 interface DocumentIDPageProps {
     props: Promise<{ documentId: string }>
@@ -14,10 +15,10 @@ function DocumentIDPage({props}: DocumentIDPageProps) {
                 <Navbar />
                 <Toolbar />
             </div>
-            {/* I don't know why, i think navbar or toolbar, any of these is absolute or relative, if found then give editor `padding-top` of 114px */}
-            {/*<div className="pt-[114px] print:pt-0">*/}
             <div className="print:pt-0">
-                <Editor />
+                <Room>
+                    <Editor />
+                </Room>
             </div>
         </div>)
 }

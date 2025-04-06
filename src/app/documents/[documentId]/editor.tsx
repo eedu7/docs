@@ -19,13 +19,15 @@ import {Color} from '@tiptap/extension-color'
 import Link from "@tiptap/extension-link"
 import TextAlign from '@tiptap/extension-text-align'
 import {LineHeightExtension} from "@/extensions/line-height"
-
+import { useLiveblocksExtension } from "@liveblocks/react-tiptap";
 
 import {useEditorStore} from "@/store/use-editor-store";
 import { FontSizeExtension } from "@/extensions/font-size"
 import {Ruler} from "@/app/documents/[documentId]/ruler";
 
 export const Editor = () => {
+
+    const liveBlocks = useLiveblocksExtension();
 
     const {setEditor} = useEditorStore();
 
@@ -78,7 +80,8 @@ export const Editor = () => {
             LineHeightExtension.configure({
                 type: ["heading", "paragraph"],
                 defaultLineHeight: "normal"
-            })
+            }),
+            liveBlocks
         ],
 
     });
