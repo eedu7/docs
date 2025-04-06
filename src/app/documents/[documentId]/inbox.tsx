@@ -10,7 +10,15 @@ import {InboxNotification, InboxNotificationList} from "@liveblocks/react-ui";
 
 export const Inbox = () => {
     return (
-        <ClientSideSuspense fallback={null}>
+        <ClientSideSuspense fallback={
+            <Button
+                size="icon"
+                className="relative"
+                disabled
+                variant="ghost">
+                <BellIcon className="size-5" />
+            </Button>
+        }>
             <InboxMenu />
         </ClientSideSuspense>
     )
