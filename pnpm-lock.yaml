@@ -264,9 +264,6 @@ importers:
       '@types/react-dom':
         specifier: ^18
         version: 18.3.6(@types/react@18.3.20)
-      eslint:
-        specifier: ^8
-        version: 8.57.1
       eslint-config-next:
         specifier: 15.0.3
         version: 15.0.3(eslint@8.57.1)(typescript@5.8.2)
