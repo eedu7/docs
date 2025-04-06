@@ -30,9 +30,14 @@ import {OrganizationSwitcher, UserButton} from "@clerk/nextjs";
 import React from "react";
 import {Avatars} from "@/app/documents/[documentId]/avatars";
 import {Inbox} from "@/app/documents/[documentId]/inbox";
+import {Doc} from "../../../../convex/_generated/dataModel";
+
+interface NavbarProps {
+    data: Doc<"documents">;
+}
 
 
-export const Navbar = () => {
+export const Navbar = ({data}: NavbarProps) => {
 
     const { editor } = useEditorStore();
 
@@ -55,7 +60,7 @@ export const Navbar = () => {
         const blob= new Blob([JSON.stringify(content)], {
             type: "application/json",
         })
-        onDownload(blob, "document.json")  // TODO: Use document name
+        onDownload(blob, `${data.title}.json`)
     }
 
     const onSaveHTML = () => {
@@ -65,7 +70,7 @@ export const Navbar = () => {
         const blob= new Blob([content], {
             type: "text/html",
         })
-        onDownload(blob, "document.html")  // TODO: Use document name
+        onDownload(blob, `${data.title}.html`)
     }
 
     const onSaveText = () => {
@@ -75,7 +80,7 @@ export const Navbar = () => {
         const blob= new Blob([content], {
             type: "text/plain",
         })
-        onDownload(blob, "document.txt")  // TODO: Use document name
+        onDownload(blob, `${data.title}.txt`)
     }
 
     return (

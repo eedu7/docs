@@ -2,7 +2,7 @@ import React from 'react'
 import {auth} from "@clerk/nextjs/server";
 
 import {Id} from "../../../../convex/_generated/dataModel";
-import {DocumentPage} from "@/app/documents/[documentId]/documents";
+import {DocumentPage} from "@/app/documents/[documentId]/document";
 import {preloadQuery} from "convex/nextjs";
 import {api} from "../../../../convex/_generated/api";
 

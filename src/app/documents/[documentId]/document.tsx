@@ -1,4 +1,6 @@
-import {Preloaded} from "convex/react";
+"use client"
+
+import {Preloaded, usePreloadedQuery} from "convex/react";
 
 import {Editor} from "@/app/documents/[documentId]/editor";
 import {Toolbar} from "@/app/documents/[documentId]/toolbar";
@@ -11,6 +13,8 @@ interface DocumentPageProps {
 }
 
 export function DocumentPage({preloadedDocument}: DocumentPageProps) {
+
+    const document = usePreloadedQuery(preloadedDocument);
 
     return (
         <Room>
