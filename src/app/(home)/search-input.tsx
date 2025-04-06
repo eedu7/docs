@@ -19,7 +19,6 @@ export const SearchInput = () => {
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setValue(e.target.value);
-
     }
 
     const handleClear = () => {
