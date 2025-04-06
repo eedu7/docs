@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/dialog";
 import {Input} from "@/components/ui/input";
 import {Button} from "@/components/ui/button";
+import {toast} from "sonner";
 
 
 interface RenameDialogProps {
@@ -40,6 +41,8 @@ export const RenameDialog = ({documentId, children, initialTitle}: RenameDialogP
             title: title.trim() || "Untitled"
         })
             .then(() => setOpen(false))
+            .catch(() => toast.error("Something went wrong"))
+            .then(() => toast.success("Document renamed"))
             .finally(() => {
                 setIsUpdating(false);
                 setOpen(false);

@@ -3,6 +3,7 @@ import { Inter } from "next/font/google"
 import "./globals.css";
 import {NuqsAdapter} from "nuqs/adapters/next/app";
 import {ConvexClientProvider} from "@/components/ConvexClientProvider";
+import {Toaster} from "@/components/ui/sonner";
 
 const inter = Inter({
     subsets: ["latin"]
@@ -27,6 +28,7 @@ export default function RootLayout({
       <NuqsAdapter>
           <ConvexClientProvider>
             {children}
+              <Toaster />
           </ConvexClientProvider>
       </NuqsAdapter>
       </body>
