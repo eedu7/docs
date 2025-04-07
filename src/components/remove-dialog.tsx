@@ -51,13 +51,13 @@ export default function RemoveDialog({documentId, children, redirect}: RemoveDia
                             e.stopPropagation();
                             setIsRemoving(true);
                             remove({id: documentId})
-                                .catch(() => toast.error("Something went wrong"))
                                 .then(() => {
                                     toast.success("Document removed")
                                     if (redirect) {
                                       router.push(redirect || "/")
                                     }
                                 })
+                                .catch(() => toast.error("Something went wrong"))
                                 .finally(() => setIsRemoving(false));
                         }}
                     >
