@@ -25,6 +25,8 @@ async function DocumentIDPage({ params }: DocumentIDPageProps) {
         { token }
     )
 
+    if (!preloadedDocument) throw new Error("Document not found!");
+
     return (
         <DocumentPage
             preloadedDocument={preloadedDocument}
