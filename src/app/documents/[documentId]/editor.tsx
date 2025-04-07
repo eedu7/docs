@@ -8,7 +8,6 @@ import Table from '@tiptap/extension-table'
 import TableCell from '@tiptap/extension-table-cell'
 import TableHeader from '@tiptap/extension-table-header'
 import TableRow from '@tiptap/extension-table-row'
-import Image from '@tiptap/extension-image'
 import ImageResize from "tiptap-extension-resize-image"
 import Underline from "@tiptap/extension-underline"
 import Text from '@tiptap/extension-text'
@@ -83,7 +82,7 @@ export const Editor = ({ initialContent }: EditorProps) => {
             }),
             TaskList,
             TaskItem.configure({ nested: true }),
-            Table, TableRow, TableHeader, TableCell, Image, ImageResize,
+            Table, TableRow, TableHeader, TableCell, ImageResize,
             Underline, Text, TextStyle, FontFamily, Color,
             HighLight.configure({ multicolor: true }),
             Link.configure({
