@@ -24,7 +24,7 @@ export function DocumentPage({preloadedDocument}: DocumentPageProps) {
                     <Toolbar />
                 </div>
                 <div className="print:pt-0">
-                    <Editor />
+                    <Editor  initialContent={document.initialContent} />
                 </div>
             </div>
         </Room>

@@ -43,7 +43,7 @@ export const TemplatesGallery = () => {
                 <Carousel>
                     <CarouselContent className="-ml-4">
                         {
-                            templates.map(({id, label, imageUrl}) => (
+                            templates.map(({id, label, imageUrl, initialContent}) => (
                                 <CarouselItem key={id}
                                 className="basis-1/2 sm:basis-1/3 md:basic-1/4 lg:basic-1/5 xl:basis-1/6 2xl:basic-[14.28571%] pl-4"
                                 >
@@ -56,7 +56,7 @@ export const TemplatesGallery = () => {
                                     >
                                         {/* TODO: Add proper initial content */}
                                         <button disabled={isCreating}
-                                        onClick={() => onTemplateClick(label, "")}
+                                        onClick={() => onTemplateClick(label, initialContent)}
                                         style={{
                                             backgroundImage: `url(${imageUrl})`,
                                             backgroundSize: "cover",
