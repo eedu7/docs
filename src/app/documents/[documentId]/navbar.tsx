@@ -165,6 +165,7 @@ export const Navbar = ({data}: NavbarProps) => {
                                             Rename
                                         </MenubarItem>
                                     </RenameDialog>
+                                    {/* TODO: fix the error, when we remove a dialog */}
                                     <RemoveDialog documentId={data._id} redirect="/">
                                         <MenubarItem
                                             onSelect={e => e.preventDefault()}
