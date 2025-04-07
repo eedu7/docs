@@ -54,7 +54,9 @@ export default function RemoveDialog({documentId, children, redirect}: RemoveDia
                                 .catch(() => toast.error("Something went wrong"))
                                 .then(() => {
                                     toast.success("Document removed")
-                                    if (redirect) router.push(redirect)
+                                    if (redirect) {
+                                      router.push(redirect || "/")
+                                    }
                                 })
                                 .finally(() => setIsRemoving(false));
                         }}

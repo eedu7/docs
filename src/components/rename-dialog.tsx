@@ -17,19 +17,15 @@ import {
 import {Input} from "@/components/ui/input";
 import {Button} from "@/components/ui/button";
 import {toast} from "sonner";
-import {useRouter} from "next/navigation";
 
 
 interface RenameDialogProps {
     documentId: Id<"documents">;
     children: React.ReactNode;
     initialTitle: string;
-    redirect?: string;
 }
 
-export const RenameDialog = ({documentId, children, initialTitle, redirect}: RenameDialogProps) => {
-
-    const router = useRouter();
+export const RenameDialog = ({documentId, children, initialTitle}: RenameDialogProps) => {
 
     const update = useMutation(api.documents.updateById);
     const [isUpdating, setIsUpdating] = React.useState(false);
@@ -48,8 +44,6 @@ export const RenameDialog = ({documentId, children, initialTitle, redirect}: Ren
             .catch(() => toast.error("Something went wrong"))
             .then(() => {
                 toast.success("Document renamed");
-                if (redirect) router.push(redirect)
-
             })
             .finally(() => {
                 setIsUpdating(false);

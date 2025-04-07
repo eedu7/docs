@@ -156,10 +156,9 @@ export const Navbar = ({data}: NavbarProps) => {
                                     <MenubarSeparator />
                                     <RenameDialog
                                         documentId={data._id} initialTitle={data.title}
-                                        redirect="/"
                                     >
                                         <MenubarItem
-                                            onSelect={e => e.stopPropagation()}
+                                            onSelect={e => e.preventDefault()}
                                             onClick={(e) => e.stopPropagation()}
                                         >
                                             <FilePenIcon className="size-4 mr-2" />
@@ -168,7 +167,7 @@ export const Navbar = ({data}: NavbarProps) => {
                                     </RenameDialog>
                                     <RemoveDialog documentId={data._id} redirect="/">
                                         <MenubarItem
-                                            onSelect={e => e.stopPropagation()}
+                                            onSelect={e => e.preventDefault()}
                                             onClick={(e) => e.stopPropagation()}>
                                             <TrashIcon className="size-4 mr-2" />
                                             Remove
